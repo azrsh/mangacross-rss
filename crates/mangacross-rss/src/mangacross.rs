@@ -1,10 +1,4 @@
-use futures::future;
-use reqwest::header::CONTENT_TYPE;
-use rss::{
-    Channel, ChannelBuilder, EnclosureBuilder, GuidBuilder, ImageBuilder, Item, ItemBuilder,
-};
 use serde::{Deserialize, Serialize};
-use tracing::trace;
 
 pub const MANGACROSS_HOST: &str = "https://mangacross.jp";
 
@@ -70,8 +64,8 @@ pub struct ComicTag {
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct Promotion {
-    pub title: String,
-    pub content: String,
+    pub title: Option<String>,
+    pub content: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
